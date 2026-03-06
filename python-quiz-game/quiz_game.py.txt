@@ -1,0 +1,63 @@
+import random
+
+questions = [
+    {
+        "question": "What keyword is used to define a constant in C?",
+        "options": ["A) const", "B) define", "C) constant", "D) var"],
+        "answer": "A"
+    },
+    {
+        "question": "What is the return type of main in C?",
+        "options": ["A) void", "B) int", "C) float", "D) char"],
+        "answer": "B"
+    },
+    {
+        "question": "Which symbol is used for comments in Python?",
+        "options": ["A) //", "B) /* */", "C) #", "D) --"],
+        "answer": "C"
+    },
+    {
+        "question": "Which data structure stores key-value pairs in Python?",
+        "options": ["A) list", "B) tuple", "C) dictionary", "D) set"],
+        "answer": "C"
+    }
+]
+
+while True:
+
+    print("\n--- Quiz Game Menu ---")
+    print("1 Start Quiz")
+    print("2 Exit")
+
+    choice = input("Enter choice: ")
+
+    if choice == "1":
+
+        score = 0
+        random.shuffle(questions)
+
+        for q in questions:
+
+            print("\n" + q["question"])
+
+            for option in q["options"]:
+                print(option)
+
+            answer = input("Your answer: ").upper()
+
+            if answer == q["answer"]:
+                print("Correct!")
+                score += 1
+            else:
+                print("Wrong!")
+
+        print("\nQuiz finished!")
+        print("Your score:", score, "/", len(questions))
+
+    elif choice == "2":
+
+        print("Goodbye!")
+        break
+
+    else:
+        print("Invalid choice.")
